@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Google Form</title>
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+
+<body>
+
+<div style="padding: 12px 12px; background-color: red; margin-right: 60px; color: white; border-radius: 12px; ">
+    <a href="index.html" style="text-decoration: none; color: white; " >
+        Go to home 
+    </a> 
+</div>
+    <div class="form-container">
+        <h2>Rent a car now</h2>
+
+        <iframe src="https://form.jotform.com/250766517448466" width="100%" height="600px" frameborder="0"
+            allowfullscreen>
+        </iframe>
+
+
+        <!-- <form id="customForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form> -->
+    </div>
+    <a href="https://wa.me/61410046060" class="whatsapp-btn" target="_blank"
+        style="position: fixed; bottom: 120px; right: 20px; z-index: 100;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50px">
+        <span>Contact us</span>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("z-xX_5hleQvD3yFSz"); // Replace with your EmailJS public key
+        })();
+
+        document.getElementById("customForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            emailjs.sendForm("service_nlv5pmf", "template_oj6qm84", this)
+                .then(() => alert("Message Sent Successfully!"))
+                .catch(error => alert("Error: " + error));
+        });
+    </script>
+
+</body>
+
+</html>
